@@ -1,0 +1,60 @@
+<!-- Etape 3 - Etape 8 -->
+<form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+    <div flexLayout="column" flexLayoutAlign="center">
+        <div flexLayout="row">
+            Nom
+            <input formControlName="nom" type="text" required>
+            <span *ngIf="!nom?.valid">Nom invalide !</span>
+        </div>
+        <div flexLayout="row">
+            Prénom
+            <input formControlName="prenom" type="text" required>
+            <span *ngIf="!prenom?.valid">Prénom invalide !</span>
+        </div>
+        <div flexLayout="row">
+            Email
+            <input formControlName="email" type="email" required>
+            <span *ngIf="!email?.valid">Email invalide !</span>
+        </div>
+        <div flexLayout="row">
+            Age
+            <input formControlName="age" type="number" required>
+            <span *ngIf="!age?.valid">Age invalide !</span>
+        </div>
+        <div flexLayout="row">
+            <!-- <button type="submit" [disabled]="!formulaire.valid">Ajouter un utilisateur</button> -->
+            <button type="submit">Ajouter un utilisateur</button>
+        </div>
+    </div>
+
+</form>
+
+<h3>Valeurs</h3>
+<ul>
+    <li>Mon nom est {{nom?.value}}</li>
+    <li>Mon prénom est {{prenom?.value}}</li>
+    <li>Mon email est {{email?.value}}</li>
+    <li>Mon age est {{age?.value}}</li>
+</ul>
+
+
+<!-- Partie 8 -->
+<h3>Utilisateurs</h3>
+<div>
+    <table>
+        <thead>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Age</th>
+        </thead>
+        <tbody *ngIf="usersList.length">
+            <tr *ngFor="let user of usersList">
+                <td>{{user.nom}}</td>
+                <td>{{user.prenom}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
